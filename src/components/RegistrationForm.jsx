@@ -1,6 +1,7 @@
 // src/components/RegistrationForm.jsx
 import React, { useState, useEffect } from 'react';
 import {
+  calculateAge,
   isAdult,
   isValidPostalCode,
   isValidName,
@@ -20,10 +21,9 @@ const RegistrationForm = () => {
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [toasterMessage, setToasterMessage] = useState(null);
-  const [toasterType, setToasterType] = useState(''); // 'success' ou 'error'
+  const [toasterType, setToasterType] = useState(''); // "success" ou "error"
   const [isFormValid, setIsFormValid] = useState(false);
 
-  // Vérifier que tous les champs sont remplis pour activer le bouton
   useEffect(() => {
     const allFilled = Object.values(formData).every((v) => v.trim() !== '');
     setIsFormValid(allFilled);
@@ -35,7 +35,6 @@ const RegistrationForm = () => {
       ...prev,
       [name]: value,
     }));
-    // Réinitialisation de l'erreur du champ au changement
     setErrors((prev) => ({
       ...prev,
       [name]: '',
@@ -59,7 +58,6 @@ const RegistrationForm = () => {
     if (!isValidPostalCode(formData.codePostal)) {
       newErrors.codePostal = "Le code postal n'est pas valide.";
     }
-    // La ville peut être simplement non vide dans ce cas
     if (formData.ville.trim() === "") {
       newErrors.ville = "La ville est obligatoire.";
     }
@@ -70,18 +68,14 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Sauvegarder dans le localStorage
       localStorage.setItem('user', JSON.stringify(formData));
-      // Afficher le toaster de succès
       setToasterMessage("Enregistrement réussi !");
       setToasterType("success");
-      // Réinitialiser le formulaire
       setFormData(initialState);
     } else {
       setToasterMessage("Erreur dans le formulaire. Veuillez corriger les erreurs.");
       setToasterType("error");
     }
-    // On affiche le message temporairement
     setTimeout(() => {
       setToasterMessage(null);
     }, 3000);
@@ -97,8 +91,9 @@ const RegistrationForm = () => {
       )}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Nom :</label>
+          <label htmlFor="nom">Nom :</label>
           <input
+            id="nom"
             type="text"
             name="nom"
             value={formData.nom}
@@ -107,8 +102,9 @@ const RegistrationForm = () => {
           {errors.nom && <div className="error-message">{errors.nom}</div>}
         </div>
         <div>
-          <label>Prénom :</label>
+          <label htmlFor="prenom">Prénom :</label>
           <input
+            id="prenom"
             type="text"
             name="prenom"
             value={formData.prenom}
@@ -117,8 +113,9 @@ const RegistrationForm = () => {
           {errors.prenom && <div className="error-message">{errors.prenom}</div>}
         </div>
         <div>
-          <label>Email :</label>
+          <label htmlFor="email">Email :</label>
           <input
+            id="email"
             type="email"
             name="email"
             value={formData.email}
@@ -127,8 +124,9 @@ const RegistrationForm = () => {
           {errors.email && <div className="error-message">{errors.email}</div>}
         </div>
         <div>
-          <label>Date de naissance :</label>
+          <label htmlFor="dateNaissance">Date de naissance :</label>
           <input
+            id="dateNaissance"
             type="date"
             name="dateNaissance"
             value={formData.dateNaissance}
@@ -137,8 +135,9 @@ const RegistrationForm = () => {
           {errors.dateNaissance && <div className="error-message">{errors.dateNaissance}</div>}
         </div>
         <div>
-          <label>Ville :</label>
+          <label htmlFor="ville">Ville :</label>
           <input
+            id="ville"
             type="text"
             name="ville"
             value={formData.ville}
@@ -147,8 +146,9 @@ const RegistrationForm = () => {
           {errors.ville && <div className="error-message">{errors.ville}</div>}
         </div>
         <div>
-          <label>Code Postal :</label>
+          <label htmlFor="codePostal">Code Postal :</label>
           <input
+            id="codePostal"
             type="text"
             name="codePostal"
             value={formData.codePostal}

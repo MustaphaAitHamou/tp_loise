@@ -11,6 +11,9 @@
 # production
 /build
 
+# documentation (générée par JSDoc)
+ /docs
+
 # misc
 .DS_Store
 .env.local
