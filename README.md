@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Projet d'Inscription
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet est une application React qui permet à un utilisateur de s'inscrire via un formulaire en validant plusieurs champs (nom, prénom, email, date de naissance, ville, code postal).  
+En fonction de la validation, l'application affiche un toaster de succès ou d'erreur et sauvegarde les données dans le localStorage.
 
-## Available Scripts
+## Table des matières
 
-In the project directory, you can run:
+- [Projet d'Inscription](#projet-dinscription)
+  - [Table des matières](#table-des-matières)
+  - [Fonctionnalités](#fonctionnalités)
+  - [Installation](#installation)
+    - [Prérequis](#prérequis)
+    - [Cloner le dépôt](#cloner-le-dépôt)
 
-### `npm start`
+## Fonctionnalités
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Formulaire d'inscription** : Affiche les champs pour nom, prénom, email, date de naissance, ville et code postal.
+- **Validation** :
+  - L'utilisateur doit avoir au moins 18 ans.
+  - Le code postal doit être au format français (5 chiffres).
+  - Les noms et prénoms ne doivent pas contenir de chiffres ou caractères spéciaux non autorisés (seuls les accents, tréma et tiret sont admis).
+  - L'adresse email doit être correcte.
+- **Bouton "Sauvegarder"** : Désactivé tant que tous les champs ne sont pas remplis.
+- **Toasters** : Affichage d'un message de succès en cas de validation et d'erreur avec des messages spécifiques affichés en rouge pour chaque champ invalide.
+- **Sauvegarde locale** : Enregistrement des données dans le localStorage.
+- **Tests** : Tests unitaires et d'intégration garantissant la fiabilité du formulaire et des fonctions de validation.
+- **Déploiement** : Configuration GitHub Actions pour exécuter les tests et déployer l'application sur GitHub Pages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+### Prérequis
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version LTS recommandée)
+- npm (inclus avec Node.js)
 
-### `npm run build`
+### Cloner le dépôt
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/votre-utilisateur/mon-projet-inscription.git
+cd mon-projet-inscription
