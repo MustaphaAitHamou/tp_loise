@@ -1,7 +1,6 @@
 // src/components/RegistrationForm.jsx
 import React, { useState, useEffect } from 'react';
 import {
-  calculateAge,
   isAdult,
   isValidPostalCode,
   isValidName,
